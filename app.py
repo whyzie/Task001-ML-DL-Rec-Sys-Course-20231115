@@ -58,7 +58,7 @@ border-left: 5px solid #6c6c6c;">
 # Search for Course
 @st.cache
 def search_term_if_not_found(term,df):
-    result_df = df[['course_title'].str.contains(term)]
+    result_df = df[df['course_title'].str.contains(term)]
     return result_df
 
 
