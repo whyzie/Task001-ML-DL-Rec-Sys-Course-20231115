@@ -105,7 +105,7 @@ def main():
                     results = "Not Found"
                     st.warning(results)
                     st.info("Suggested options include")
-                    result_df = search_term_if_not_found
+                    result_df = search_term_if_not_found(search_term,df)
                     st.dataframe(result_df)
                 
                 #st.write(results)
