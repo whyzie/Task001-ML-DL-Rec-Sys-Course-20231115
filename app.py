@@ -8,7 +8,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity, linear_kernel
 
 # Load dataset
-
 def load_data(url):
     # Load the data into a DataFrame
     df = pd.read_csv(url)
@@ -70,7 +69,8 @@ def main():
     choice = st.sidebar.selectbox("Menu",menu)
 
     # GitHub URL of the CSV file
-    github_url = "https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv"
+    github_url = "https://github.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/blob/main/requirements.txt"
+    #"https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv"
     
     # Load the data
     df = load_data(github_url)
