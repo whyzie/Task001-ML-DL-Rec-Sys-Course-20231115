@@ -10,12 +10,9 @@ from sklearn.metrics.pairwise import cosine_similarity, linear_kernel
 # Load dataset
 
 def load_data(url):
-    try:
-        # Load the data into a DataFrame
-        df = pd.read_csv(url)
-        return df
-    except Exception as e:
-        st.error(f"Error: {e}")
+    # Load the data into a DataFrame
+    df = pd.read_csv(url)
+    return df
 
 # Fxn
 # Vectorize + Cosine Similarity Matrix
