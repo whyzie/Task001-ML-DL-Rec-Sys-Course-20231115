@@ -45,7 +45,7 @@ def get_recommendation(title, cosine_sim_mat, df, num_of_rec=10):
 # CSS style for search courses
 RESULT_TEMP = """
 <div style = "width:90%; height:100%; margin:1px; padding:5px; position:relaive; border-radius:5px; 
-border-bottom:5px; box-shadow:0 0 15px 5px #ccc; background-color:#a8f0c6;
+border-bottom-right-radius: 60px; box-shadow:0 0 15px 5px #ccc; background-color:#a8f0c6;
 border-left: 5px solid #6c6c6c;">
 <h4>{}</h4>
 <p style="color:blue;"><span style="color:black;">📚 Score:</span>{}</p>
@@ -87,7 +87,7 @@ def main():
             if search_term is not None:
                 try:
                     results = get_recommendation(search_term, cosine_sim_mat,df, num_of_rec)#pass
-                    with st.beta_expand_expander("Results as JSON"):
+                    with st.beta_expander("Results as JSON"):
                         results_json = results.to_dict('index')
                         st.write(results_json)
 
