@@ -8,9 +8,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity, linear_kernel
 
 # Load dataset
-def load_data(data):
-    df = pd.read_csv("data")
-    return df
+
+def load_data(url):
+    try:
+        # Load the data into a DataFrame
+        df = pd.read_csv(url)
+        return df
+    except Exception as e:
+        st.error(f"Error: {e}")
+
 # Fxn
 # Vectorize + Cosine Similarity Matrix
 def vectorize_text_to_cos_mat(data):
@@ -66,7 +72,11 @@ def main():
     menu = ["Home", "Recommend", "About"]
     choice = st.sidebar.selectbox("Menu",menu)
 
-    df = load_data("https://github.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/tree/main/00.%20Data\courses.csv")
+    # GitHub URL of the CSV file
+    github_url = "https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv"
+    
+    # Load the data
+    df = load_data(github_url)
     
     if choice == "Home":
         st.subheader("Home")
