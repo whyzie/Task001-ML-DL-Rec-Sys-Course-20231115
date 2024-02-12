@@ -40,7 +40,7 @@ def get_recommendation(title, cosine_sim_mat, df, num_of_rec=10):
     result_df = df.iloc[selected_course_indices]
     result_df['similarity_score'] = selected_course_scores
     final_recommended_course = result_df[['course_title','similarity_score','url','price','number_subscribers']]
-    return final_recommended_course(num_of_rec)
+    return final_recommended_course.head(num_of_rec)
 
 # CSS style for search courses
 RESULT_TEMP = """
@@ -55,6 +55,7 @@ border-left: 5px solid #6c6c6c;">
 
 </div>
 """
+
 # Search for Course
 @st.cache
 def search_term_if_not_found(term,df):
@@ -98,8 +99,8 @@ def main():
                         rec_price = row[1][3]
                         rec_num_subs = row[1][4]
 
-                    #st.write("Title",rec_title)
-                    stc.html(RESULT_TEMP.format(rec_title, rec_score, rec_url, rec_price, rec_num_subs), height = 350)
+                        #st.write("Title",rec_title)
+                        stc.html(RESULT_TEMP.format(rec_title, rec_score, rec_url, rec_price, rec_num_subs), height = 350)
 
                 except:
                     results = "Not Found"
