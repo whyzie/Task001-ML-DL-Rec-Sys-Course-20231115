@@ -16,11 +16,11 @@ def load_data(url):
 # Fxn
 # Vectorize + Cosine Similarity Matrix
 
-def vectorize_text_to_cos_mat(data):
+def vectorize_text_to_cosine_mat(data):
 	count_vect = CountVectorizer()
-	cv_mat = count_vect.fit_transform(data)
+	cov_mat = count_vect.fit_transform(data)
 	# Get the cosine
-	cosine_sim_mat = cosine_similarity(cv_mat)
+	cosine_sim_mat = cosine_similarity(cov_mat)
 	return cosine_sim_mat
 
 
@@ -83,7 +83,7 @@ def main():
 
 	elif choice == "Recommend":
 		st.subheader("Recommend Courses")
-		cosine_sim_mat = vectorize_text_to_cos_mat(df['course_title'])
+		cosine_sim_mat = vectorize_text_to_cosine_mat(df['course_title'])
 		search_term = st.text_input("Search")
 		num_of_rec = st.sidebar.number_input("Number",4,30,7)
 		if st.button("Recommend"):
@@ -99,10 +99,10 @@ def main():
 						rec_score = row[1][1]
 						rec_url = row[1][2]
 						rec_price = row[1][3]
-						rec_num_subs = row[1][4]
+						rec_num_sub = row[1][4]
 
 						# st.write("Title",rec_title,)
-						stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_subs),height=350)
+						stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350)
 				except:
 					results= "Not Found"
 					st.warning(results)
