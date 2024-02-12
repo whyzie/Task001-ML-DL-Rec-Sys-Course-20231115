@@ -80,7 +80,6 @@ def main():
 		st.dataframe(df.head(10))
 
 
-
 	elif choice == "Recommend":
 		st.subheader("Recommend Courses")
 		cosine_sim_mat = vectorize_text_to_cosine_mat(df['course_title'])
@@ -112,7 +111,7 @@ def main():
 
 
 
-				# How To 
+				# How To Maximize Your Profits Options Trading
 
 
 
