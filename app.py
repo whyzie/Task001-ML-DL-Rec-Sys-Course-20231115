@@ -18,9 +18,9 @@ def load_data(url):
 
 def vectorize_text_to_cosine_mat(data):
 	count_vect = CountVectorizer()
-	cov_mat = count_vect.fit_transform(data)
+	cv_mat = count_vect.fit_transform(data)
 	# Get the cosine
-	cosine_sim_mat = cosine_similarity(cov_mat)
+	cosine_sim_mat = cosine_similarity(cv_mat)
 	return cosine_sim_mat
 
 
