@@ -73,10 +73,7 @@ def main():
 	menu = ["Home","Recommend","About"]
 	choice = st.sidebar.selectbox("Menu",menu)
 
-    	# GitHub URL of the CSV file
     	github_url = "https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv"
-    
-    	# Load the data
     	df = load_data(github_url)
 
 	if choice == "Home":
