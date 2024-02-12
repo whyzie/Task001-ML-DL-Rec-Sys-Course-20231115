@@ -9,9 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity, linear_kernel
 
 # Load dataset
 def load_data(url):
-    # Load the data into a DataFrame
-    df = pd.read_csv(url)
-    return df
+    	# Load the data into a DataFrame
+    	df = pd.read_csv(url)
+    	return df
 
 # Fxn
 # Vectorize + Cosine Similarity Matrix
@@ -73,8 +73,11 @@ def main():
 	menu = ["Home","Recommend","About"]
 	choice = st.sidebar.selectbox("Menu",menu)
 
+    	# GitHub URL of the CSV file
+    	github_url = "https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv"
+    
     	# Load the data
-    	df = load_data("https://raw.githubusercontent.com/whyzie/Task001-ML-DL-Rec-Sys-Course-20231115/main/00.%20Data/courses.csv")
+    	df = load_data(github_url)
 
 	if choice == "Home":
 		st.subheader("Home")
