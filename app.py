@@ -100,9 +100,9 @@ def main():
 						rec_price = row[1][3]
 						rec_num_sub = row[1][4]
 
-						# Display the recommendations using the RESULT_TEMP template
-        			        for recommendation in recommendations:
-            				        st.markdown(RESULT_TEMP.format(*recommendation), unsafe_allow_html=True)
+					# Display the recommendations using the RESULT_TEMP template
+					for recommendation in recommendations:
+						st.markdown(RESULT_TEMP.format(*recommendation), unsafe_allow_html=True)
 				except:
 					results= "Not Found"
 					st.warning(results)
