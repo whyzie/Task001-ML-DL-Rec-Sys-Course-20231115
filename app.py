@@ -52,17 +52,12 @@ box-shadow:0 0 15px 5px #ccc; background-color: #a8f0c6;
   border-left: 5px solid #6c6c6c;">
 <h4>{}</h4>
 <p style="color:blue;"><span style="color:black;">📈Score::</span>{}</p>
-<p style="color:blue;"><span style="color:black;">🔗</span><a href="{}",target="_blank">Link</a></p>
+<p style="color:blue;"><span style="color:black;">🔗 Link</span><a href="{}" target="_blank">Link</a></p>
 <p style="color:blue;"><span style="color:black;">💲Price:</span>{}</p>
 <p style="color:blue;"><span style="color:black;">🧑‍🎓👨🏽‍🎓 Students:</span>{}</p>
 
 </div>
 """
-# Replace placeholders with actual values
-formatted_result = RESULT_TEMP.format("Title", "Score", "Link URL", "Price", "Number of Students")
-
-# Display the formatted result in the Streamlit app
-st.markdown(formatted_result, unsafe_allow_html=True)
 
 # Search For Course 
 @st.cache
