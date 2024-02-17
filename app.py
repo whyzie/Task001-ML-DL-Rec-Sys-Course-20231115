@@ -45,13 +45,6 @@ def get_recommendation(title,cosine_sim_mat,df,num_of_rec=10):
 	final_recommended_courses = result_df[['course_title','similarity_score','url','price','num_subscribers']]
 	return final_recommended_courses.head(num_of_rec)
 
-	# Prepare the formatted result using the RESULT_TEMP template
-    	formatted_result = ""
-    	for index, row in final_recommended_courses.head(num_of_rec).iterrows():
-        		formatted_result += RESULT_TEMP.format(row['course_title'], row['similarity_score'], row['url'], row['price'], row['num_subscribers'])
-
-    	return formatted_result
-
 
 RESULT_TEMP = """
 <div style="width:90%;height:100%;margin:1px;padding:5px;position:relative;border-radius:5px;border-bottom-right-radius: 60px;
@@ -65,9 +58,6 @@ box-shadow:0 0 15px 5px #ccc; background-color: #a8f0c6;
 
 </div>
 """
-# Replace placeholders with actual values
-formatted_result = RESULT_TEMP.format("Title", "Score", "Link URL", "Price", "Number of Students")
-
 # Display the formatted result in the Streamlit app
 st.markdown(formatted_result, unsafe_allow_html=True)
 
