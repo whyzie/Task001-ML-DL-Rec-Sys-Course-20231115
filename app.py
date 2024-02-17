@@ -89,9 +89,9 @@ def main():
 			if search_term is not None:
 				try:
 					results = get_recommendation(search_term, cosine_sim_mat, df, num_of_rec)
-					#st.subheader("Recommendation Results")
-                    			for idx, row in results.iterrows():
-                        			st.write(f"**{row['course_title']}**")
+					st.subheader("Recommendation Results")
+					for idx, row in results.iterrows():
+						st.write(f"**{row['course_title']}**")
                         			st.write(f"Score: {row['similarity_score']}")
                         			st.write(f"URL: [{row['url']}]({row['url']})")
                         			st.write(f"Price: {row['price']}")
