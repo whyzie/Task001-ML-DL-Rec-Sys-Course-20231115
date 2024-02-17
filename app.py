@@ -88,22 +88,32 @@ def main():
 		if st.button("Recommend"):
 			if search_term is not None:
 				try:
-					results = get_recommendation(search_term,cosine_sim_mat,df,num_of_rec)
-					with st.beta_expander("Results as JSON"):
-						results_json = results.to_dict('index')
-						st.write(results_json)
+					results = get_recommendation(search_term, cosine_sim_mat, df, num_of_rec)
+                    			st.subheader("Recommendation Results")
+                    			for idx, row in results.iterrows():
+                        			st.write(f"**{row['course_title']}**")
+                        			st.write(f"Score: {row['similarity_score']}")
+                        			st.write(f"URL: [{row['url']}]({row['url']})")
+                        			st.write(f"Price: {row['price']}")
+                        			st.write(f"Number of Subscribers: {row['num_subscribers']}")
+                        			st.markdown("---")  # Add a horizontal line between recommendations
+					
+					#results = get_recommendation(search_term,cosine_sim_mat,df,num_of_rec)
+					#with st.beta_expander("Results as JSON"):
+						#results_json = results.to_dict('index')
+						#st.write(results_json)
 
-					for row in results.iterrows():
-						rec_title = row[1][0]
-						rec_score = row[1][1]
-						rec_url = row[1][2]
-						rec_price = row[1][3]
-						rec_num_sub = row[1][4]
+					#for row in results.iterrows():
+						#rec_title = row[1][0]
+						#rec_score = row[1][1]
+						#rec_url = row[1][2]
+						#rec_price = row[1][3]
+						#rec_num_sub = row[1][4]
 
 					# Display the recommendations using the RESULT_TEMP template
 						# for recommendation in recommendations:
 						# st.write("Title",rec_title,)
-						stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
+						#stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
 							# st.markdown(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
 						
 				except:
