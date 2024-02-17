@@ -48,7 +48,7 @@ def get_recommendation(title,cosine_sim_mat,df,num_of_rec=10):
 	# Prepare the formatted result using the RESULT_TEMP template
     	formatted_result = ""
     	for index, row in final_recommended_courses.head(num_of_rec).iterrows():
-        	formatted_result += RESULT_TEMP.format(row['course_title'], row['similarity_score'], row['url'], row['price'], row['num_subscribers'])
+        		formatted_result += RESULT_TEMP.format(row['course_title'], row['similarity_score'], row['url'], row['price'], row['num_subscribers'])
 
     	return formatted_result
 
