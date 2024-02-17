@@ -58,6 +58,7 @@ box-shadow:0 0 15px 5px #ccc; background-color: #a8f0c6;
 
 </div>
 """
+
 # Display the formatted result in the Streamlit app
 st.markdown(formatted_result, unsafe_allow_html=True)
 
