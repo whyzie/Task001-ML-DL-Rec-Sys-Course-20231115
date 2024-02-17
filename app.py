@@ -90,13 +90,15 @@ def main():
 				try:
 					results = get_recommendation(search_term, cosine_sim_mat, df, num_of_rec)
 					st.subheader("Recommendation Results")
-					for idx, row in results.iterrows():
-						st.write(f"**{row['course_title']}**")
-						st.write(f"Score: {row['similarity_score']}")
-						st.write(f"URL: [{row['url']}]({row['url']})")
-						st.write(f"Price: {row['price']}")
-						st.write(f"Number of Subscribers: {row['num_subscribers']}")
-						st.markdown("---")  # Add a horizontal line between recommendations
+					st.dataframe(results)
+					
+					#for idx, row in results.iterrows():
+						#st.write(f"**{row['course_title']}**")
+						#st.write(f"Score: {row['similarity_score']}")
+						#st.write(f"URL: [{row['url']}]({row['url']})")
+						#st.write(f"Price: {row['price']}")
+						#st.write(f"Number of Subscribers: {row['num_subscribers']}")
+						#st.markdown("---")  # Add a horizontal line between recommendations
 					
 					#results = get_recommendation(search_term,cosine_sim_mat,df,num_of_rec)
 					#with st.beta_expander("Results as JSON"):
