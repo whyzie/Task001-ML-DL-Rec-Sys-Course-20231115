@@ -101,10 +101,10 @@ def main():
 						rec_num_sub = row[1][4]
 
 					# Display the recommendations using the RESULT_TEMP template
-						for recommendation in recommendations:
+						# for recommendation in recommendations:
 						# st.write("Title",rec_title,)
-						# stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350)
-							st.markdown(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
+						stc.html(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
+							# st.markdown(RESULT_TEMP.format(rec_title,rec_score,rec_url,rec_url,rec_num_sub),height=350, unsafe_allow_html=True)
 						
 				except:
 					results= "Not Found"
